@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/similar"
+        android:title="Get Similar" />
+         <item android:id="@+id/suggestlist"
+        android:title="Suggest list to friend" />
+    <item android:id="@+id/config"
+        android:title="Configurations" />
+    <item android:id="@+id/about"
+        android:title="About" />
+        
+   
+</menu>

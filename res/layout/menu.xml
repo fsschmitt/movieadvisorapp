@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/like"
+        android:title="Like it" />
+    <item android:id="@+id/want"
+        android:title="Want to See" />
+    <item android:id="@+id/seen"
+        android:title="Already Seen"
+       />
+     <item android:id="@+id/similar"
+        android:title="Similar Movies"
+       />   
+       <item android:id="@+id/suggest"
+        android:title="Suggest to friend"
+       /> 
+</menu>

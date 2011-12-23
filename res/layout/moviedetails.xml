@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	<LinearLayout
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:orientation="vertical" 
+	  android:layout_width="wrap_content" android:layout_height="wrap_content">
+	  <ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content">
+	  <LinearLayout
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:orientation="vertical" 
+	  android:layout_width="wrap_content" android:layout_height="wrap_content">
+	    <TableLayout android:id="@+id/tableLayout1" android:layout_gravity="center_vertical|center_horizontal" android:stretchColumns="*" android:layout_height="wrap_content" android:layout_width="wrap_content">
+	        <TableRow android:id="@+id/tableRow2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView android:textSize="12pt" android:id="@+id/movieName" android:gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow11" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView android:id="@+id/movieYear" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_vertical|center_horizontal" android:textSize="8pt"></TextView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow3" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <ImageView android:id="@+id/movieThumb" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_vertical|center_horizontal" android:adjustViewBounds="true"></ImageView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow1" android:layout_gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <RatingBar android:id="@+id/rating" style="?android:attr/ratingBarStyleIndicator" android:layout_gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"></RatingBar>
+	        </TableRow>
+	        
+	          
+	        
+	        <TableRow android:id="@+id/tableRow10" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/pontuation" android:gravity="center_vertical|center_horizontal"></TextView>
+	        </TableRow>
+	        
+	          <TableRow android:id="@+id/tableRow20" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView  android:background="#ffffff" android:textColor="#000000"  android:textSize="9pt" android:text="@string/genre" android:id="@+id/Genre" android:gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow21" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <ListView android:id="@+id/genres" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content"></ListView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow8" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView  android:background="#ffffff" android:textColor="#000000" android:layout_height="wrap_content" android:id="@+id/movieInfo" android:text="@string/synopsis" android:textSize="9pt" android:layout_width="wrap_content" android:gravity="center_vertical|center_horizontal"></TextView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow9" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/synopsis"></TextView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow4" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView  android:background="#ffffff" android:textColor="#000000"  android:textSize="9pt" android:text="@string/directors" android:id="@+id/Directors" android:gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow7" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <ListView android:id="@+id/directors" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content"></ListView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow5" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView  android:background="#ffffff" android:textColor="#000000"  android:textSize="9pt" android:text="@string/actors" android:id="@+id/Actors" android:gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow6" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <ListView android:id="@+id/actors" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content"></ListView>
+	        </TableRow>
+	        
+	        <TableRow android:id="@+id/tableRow20" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	            <TextView  android:background="#ffffff" android:textColor="#000000"  android:textSize="9pt" android:text="Trailer" android:id="@+id/Trailer" android:gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	        </TableRow>
+	        <TableRow android:id="@+id/tableRow21" android:layout_width="wrap_content" android:layout_height="wrap_content">
+	             <TextView  android:id="@+id/TrailerLink" android:gravity="center_vertical|center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:clickable="true" android:textSize="9pt" android:textColor="#FFFFFF" android:autoLink="all"></TextView>
+	        </TableRow>
+	      
+	        
+	        
+	    </TableLayout>
+	    </LinearLayout>
+	    </ScrollView>
+	</LinearLayout>
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, MovieAdvisor!</string>
+    <string name="app_name">Movie Advisor</string>
+    <string name="actors">Actors</string>
+    <string name="directors">Directors</string>
+    <string name="keywords">Keywords</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="facebooklogin">Facebook Login</string>
+    <string name="facebookpassword">Facebook Password</string>
+    <string name="erasedatabasedata">Erase Database Data</string>
+    <string name="erasefacebookdata">Erase Facebook Data</string>
+    <string name="erasetwitterdata">Erase Twitter Data</string><string name="showposter">Hide Movie Posters</string>
+    <string name="resultsnumber">Number of results</string><string name="donateTitle">Help us</string>
+    <string name="donateDescription">Help us improve our application</string>
+    <string name="genre">Genre(s)</string>
+    <string name="accountchooser">Google Account Chooser</string>
+    <string name="boxoffice">Box Office Movies</string>
+    
+    
+</resources>

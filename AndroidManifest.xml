@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.main" android:versionCode="1" android:versionName="1.0">
+	<supports-screens android:smallScreens="true"
+		android:normalScreens="true" android:largeScreens="true"
+		android:anyDensity="true" />
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+		
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+	<application android:icon="@drawable/icon" android:label="@string/app_name">
+
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".MainActivity">
+				<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".MovieAdvisor">
+
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".MovieSearchResults">
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".MovieDetails">
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".ShareOnFacebook">
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".FacebookActivity">
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".ToSeeList">
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".Lists">
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".PrefsActivity">
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".DisplayList">
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".TestPost">
+		</activity>
+		<activity android:theme="@android:style/Theme.NoTitleBar"
+			android:name=".CustomLists">
+		</activity>
+	</application>
+</manifest>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:key="showposter" android:title="@string/showposter" android:enabled="true" android:summary="Choose this if you have a low speed internet connection"></CheckBoxPreference>
+    <Preference android:key="erasedatabasedata" android:title="@string/erasedatabasedata" android:summary="Delete your Database information"></Preference>
+    <Preference android:title="@string/erasefacebookdata"  android:key="erasefacebookdata" android:summary="Delete your Facebook information"></Preference>
+    <Preference android:key="erasetwitterdata" android:title="@string/erasetwitterdata" android:summary="Delete your Twitter information"></Preference>
+    <ListPreference android:key="resultsnumber" android:title="@string/resultsnumber" android:entries="@array/listEntries" android:entryValues="@array/listEntriesValues" android:summary="Change the number of results per page"></ListPreference>
+    <Preference android:key="donate" android:summary="@string/donateDescription" android:title="@string/donateTitle"></Preference>
+    <ListPreference android:summary="Choose which account you want to synchronize" android:key="accountchooser" android:title="@string/accountchooser"></ListPreference>
+    
+    
+</PreferenceScreen>
