@@ -15,6 +15,7 @@ import org.json.JSONObject;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -55,7 +56,12 @@ public class MovieSearchResults extends ListActivity {
 
 		dialog = ProgressDialog.show(this, "", "Loading...",
 				true);
-
+		dialog.setCancelable(true);
+		dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+			   public void onCancel(DialogInterface dialog) {
+			    finish();
+			   }
+			  });
 		new RetrieveMovies().execute(movieSearch);
 		// search.add("Searching...");
 		setListAdapter(new ArrayAdapter<String>(this,

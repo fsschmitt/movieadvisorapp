@@ -52,6 +52,12 @@ public class Lists extends ListActivity {
 		Bundle b = this.getIntent().getExtras();
 		this.cod = b.getInt("cod");
 		dialog = ProgressDialog.show(this, "", "Loading...", true);
+		dialog.setCancelable(true);
+		dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+			   public void onCancel(DialogInterface dialog) {
+			    finish();
+			   }
+			  });
 		refreshMyList("get");
 	}
 
@@ -85,7 +91,7 @@ public class Lists extends ListActivity {
 		Utility.names.get(this.cod).clear();
 		Utility.ids.get(this.cod).clear();
 		
-		HashMap<String, ArrayList<String>> movies = new HashMap<String, ArrayList<String>>();
+		ArrayList<ArrayList<String>> movies = new ArrayList<ArrayList<String>>();
 		Collection<ArrayList<String>> info = new ArrayList<ArrayList<String>>();
 		System.out.println("listype: "+cod);
 		switch(cod){
@@ -100,7 +106,7 @@ public class Lists extends ListActivity {
 				break;
 		}
 		if(movies.size()!=0){
-			info = movies.values();
+			info = movies;
 			for (ArrayList<String> i : info) {
 				System.out.println("id: "+i.get(0) + "   name: " + i.get(1));
 				Utility.ids.get(this.cod).add(Integer.parseInt(i.get(0)));
@@ -250,6 +256,12 @@ public class Lists extends ListActivity {
 
 		case R.id.similar:
 			dialog = ProgressDialog.show(this, "", "Loading...", true);
+			dialog.setCancelable(true);
+			dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+				   public void onCancel(DialogInterface dialog) {
+				    finish();
+				   }
+				  });
 			new GetSimilarList().execute(cod + "");
 			break;
 

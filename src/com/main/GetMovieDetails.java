@@ -100,12 +100,23 @@ public class GetMovieDetails {
 		JSONObject posters = mov.getJSONObject("posters");
 		String imgLink = posters.getString("original");
 		
-		String idIMDB ="tt"+ mov.getJSONObject("alternate_ids").getString("imdb");
-		String imdbLink = "http://www.imdb.com/title/"+idIMDB+"/";
+		Movie m;
+		if(!mov.isNull("alternate_ids"))
+		{
+			String idIMDB ="tt"+ mov.getJSONObject("alternate_ids").getString("imdb");
+			String imdbLink = "http://www.imdb.com/title/"+idIMDB+"/";
+	
+			m = new Movie(id, name, year, genres, actors, directors, rating,
+					synopsis, imgLink,idIMDB,imdbLink);
+			completeMovie(m);
+		}
+		else
+		{
+			 m = new Movie(id, name, year, genres, actors, directors, rating,
+					synopsis, imgLink,null,null);
+			 m.setTrailerLink("null");
+		}
 
-		Movie m = new Movie(id, name, year, genres, actors, directors, rating,
-				synopsis, imgLink,idIMDB,imdbLink);
-		completeMovie(m);
 		return m;
 	}
 	private static void completeMovie(Movie mo) throws IOException, ParseException, JSONException {

@@ -3,6 +3,7 @@ package com.twitter.android;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -51,7 +52,12 @@ public class TwitterDialog extends Dialog {
         super.onCreate(savedInstanceState);
 
         mSpinner = new ProgressDialog(getContext());
-        
+        mSpinner.setCancelable(true);
+        mSpinner.setOnCancelListener(new DialogInterface.OnCancelListener() {
+			   public void onCancel(DialogInterface dialog) {
+			    dismiss();
+			   }
+			  });
         mSpinner.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mSpinner.setMessage("Loading...");
 

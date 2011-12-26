@@ -75,7 +75,7 @@ public class DataHelper {
    public HashMap<String, ArrayList<String>> selectAll(String table_name) {
       HashMap<String, ArrayList<String>> list = new HashMap<String, ArrayList<String>>();
       Cursor cursor = this.db.query(table_name, null, 
-        null, null, null, null, null);
+        null, null, null, null, "movieName ASC");
       if (cursor.moveToFirst()) {
          do {
         	 ArrayList<String> info = new ArrayList<String>();
@@ -90,16 +90,16 @@ public class DataHelper {
       return list;
    }
    
-   public HashMap<String, ArrayList<String>> selectAllByNames(String table_name) {
-	      HashMap<String, ArrayList<String>> list = new HashMap<String, ArrayList<String>>();
+   public ArrayList<ArrayList<String>> selectAllByNames(String table_name) {
+	      ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
 	      Cursor cursor = this.db.query(table_name, new String[]{"movieId", "movieIdRT", "movieName", "movieLink"}, 
-	        null, null, null, null, "movieName asc");
+	        null, null, null, null, "movieName ASC");
 	      if (cursor.moveToFirst()) {
 	         do {
 	        	 ArrayList<String> info = new ArrayList<String>();
 	        	 for(int i = 1; i < cursor.getColumnNames().length; i++)
 	        		 info.add(cursor.getString(i));
-	        	 list.put(cursor.getString(0), info);
+	        	 list.add(info);
 	         } while (cursor.moveToNext());
 	      }
 	      if (cursor != null && !cursor.isClosed()) {
@@ -111,7 +111,7 @@ public class DataHelper {
    public ArrayList<String> selectMovie(String table_name, int movieId) {
 	     
 	      Cursor cursor = this.db.query(table_name, null, 
-	        "movieId = ?", new String[] {String.valueOf(movieId)}, null, null, null);
+	        "movieId = ?", new String[] {String.valueOf(movieId)}, null, null, "movieName ASC");
 	      ArrayList<String> info = new ArrayList<String>();
 	      if (cursor.moveToFirst()) {
         	 info = new ArrayList<String>();

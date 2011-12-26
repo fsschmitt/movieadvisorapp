@@ -57,6 +57,12 @@ public class MovieDetails extends Activity {
 		if (movieId == null)
 			movieId = "-1";
 		dialog = ProgressDialog.show(this, "", "Loading...", true);
+		dialog.setCancelable(true);
+		dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+			   public void onCancel(DialogInterface dialog) {
+			    finish();
+			   }
+			  });
 
 		new DownloadMovieDetails().execute(movieLink);
 
@@ -83,7 +89,7 @@ public class MovieDetails extends Activity {
 			}
 			m = result;
 			movieId = String.valueOf(m.idRT);
-			movie.setText(movieSearch);
+			movie.setText(m.name);
 			
 			thumb = (ImageView) findViewById(R.id.movieThumb);
 			thumb.setEnabled(false);
@@ -141,7 +147,7 @@ public class MovieDetails extends Activity {
 			movieYear.setText("" + m.year);
 			
 			TextView TrailerLink = (TextView) findViewById(R.id.TrailerLink);
-			if (!m.getTrailerLink().equals("null")) 	
+			if (m.getTrailerLink() != null && !m.getTrailerLink().equals("null")) 	
 				TrailerLink.setText(m.getTrailerLink());
 			else
 				TrailerLink.setText("Not avaliable...");
@@ -312,7 +318,7 @@ public class MovieDetails extends Activity {
 
 	public void share(final String message, boolean flag) {
 		final CharSequence[] itemsTrue = { "Facebook", "Twitter",
-				"Only on database" };
+				"No" };
 		final CharSequence[] itemsFalse = { "Facebook", "Twitter" };
 		final CharSequence[] items;
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);

@@ -17,7 +17,7 @@ public class Movie implements Comparable<Object> {
 	public String name;
 	double rating;
 	double points = -1;
-	private String trailerLink;
+	private String trailerLink = null;
 	public HashMap<String,String> personsFotosLinks = new HashMap<String,String>();
 	public int idRT;
 	public int idTMDB;
@@ -40,6 +40,7 @@ public class Movie implements Comparable<Object> {
 	    this.synopsis=synop;
 	    this.idIMDB = idIMDB;
 	    this.imdbLink=imdbLink;
+	    this.trailerLink = null;
 	}
 	public void addPoints(double d){
 		this.points+=d;
