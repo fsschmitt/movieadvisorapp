@@ -264,15 +264,15 @@ public class MovieDetails extends Activity {
 			break;
 
 		case R.id.like:
-			share("is using Movie Advisor and just liked:",false);
+			share("I just liked: ",false);
 			break;
 		case R.id.want:
-			share("is using Movie Advidor and can't wait to see: ",true);
+			share("I can't wait to see: ",true);
 			if (!addToDatabase(0))
 				Toast.makeText(MovieDetails.this, "The movie couldn't be inserted on the list!", Toast.LENGTH_SHORT).show();	
 			break;
 		case R.id.seen:
-			share("is using Movie Advisor and has just seen: ",true);
+			share("I have just seen: ",true);
 			if (!addToDatabase(1))
 				Toast.makeText(MovieDetails.this, "The movie couldn't be inserted on the list!", Toast.LENGTH_SHORT).show();
 			break;

@@ -54,11 +54,20 @@ public class FacebookActivity extends Activity {
 
 		Bundle b = this.getIntent().getExtras();
 
+		messageToPost = b.getString("message");
+		imageLink = b.getString("imageLink");
+		description = b.getString("description");
+		caption = b.getString("caption");
+		href = b.getString("link");
+		name = b.getString("message") + b.getString("name");
+		
+		
+		
 		facebook = new Facebook(APP_ID);
 		restoreCredentials(facebook);
 		
 		facebook.authorize(this, PERMISSIONS,
-
+				
 		new DialogListener() {
 
 			public void onComplete(Bundle values) {
@@ -84,13 +93,7 @@ public class FacebookActivity extends Activity {
 			}
 		});
 
-		String facebookMessage = b.getString("message");
-		messageToPost = facebookMessage;
-		imageLink = b.getString("imageLink");
-		description = b.getString("description");
-		caption = b.getString("caption");
-		href = b.getString("link");
-		name = b.getString("name");
+		
 
 
 		
@@ -103,7 +106,7 @@ public class FacebookActivity extends Activity {
 	public void postToWall(String message) {
 		Bundle parameters = new Bundle();
 		parameters.putString("picture", imageLink);
-		parameters.putString("message", message);
+		parameters.putString("message", messageToPost);
 		parameters.putString("name", name);
 		parameters.putString("link", href);
 		parameters.putString("description", description);
