@@ -20,7 +20,6 @@ import twitter4j.User;
 import twitter4j.http.AccessToken;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;

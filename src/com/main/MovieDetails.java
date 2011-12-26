@@ -36,7 +36,6 @@ public class MovieDetails extends Activity {
 	private ImageView thumb;
 	private Movie m;
 	TextView movie;
-	private String movieSearch;
 	private String movieId;
 	private String movieLink;
 	private ProgressDialog dialog;
@@ -51,7 +50,6 @@ public class MovieDetails extends Activity {
 		movie = (TextView) findViewById(R.id.movieName);
 
 		Bundle b = this.getIntent().getExtras();
-		movieSearch = b.getString("movieName");
 		movieLink = b.getString("movieLink");
 		movieId = b.getString("movieId");
 		if (movieId == null)
