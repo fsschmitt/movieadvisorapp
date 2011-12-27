@@ -85,6 +85,8 @@ public class MovieDetails extends Activity {
 				MovieDetails.this.finish();
 				return;
 			}
+			try
+			{
 			m = result;
 			movieId = String.valueOf(m.idRT);
 			movie.setText(m.name);
@@ -151,6 +153,12 @@ public class MovieDetails extends Activity {
 				TrailerLink.setText("Not avaliable...");
 				
 			dialog.dismiss();
+			}
+			catch (Exception e) {
+				Toast.makeText(MovieDetails.this, "Details unavaliable", Toast.LENGTH_SHORT).show();
+				MovieDetails.this.finish();
+				return;
+			}
 		}
 
 	}
