@@ -240,6 +240,8 @@ public class MovieDetails extends Activity {
 			Utility.checkAccount(MovieDetails.this);
 			return true;
 		}
+		
+		Boolean sharePopUp = prefs.getBoolean("sharepopup", false);
 
 		switch (item.getItemId()) {
 		case R.id.suggest:
@@ -265,14 +267,20 @@ public class MovieDetails extends Activity {
 			share("I just liked: ",false);
 			break;
 		case R.id.want:
-			share("I can't wait to see: ",true);
+			if(!sharePopUp)
+				share("I can't wait to see: ",true);
 			if (!addToDatabase(0))
-				Toast.makeText(MovieDetails.this, "This movie is already on that list!", Toast.LENGTH_SHORT).show();	
+				Toast.makeText(MovieDetails.this, "This movie is already on that list!", Toast.LENGTH_SHORT).show();
+			else
+				Toast.makeText(MovieDetails.this, "Movie added with success!", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.seen:
-			share("I have just seen: ",true);
+			if(!sharePopUp)
+				share("I have just seen: ",true);
 			if (!addToDatabase(1))
 				Toast.makeText(MovieDetails.this, "This movie is already on that list!", Toast.LENGTH_SHORT).show();
+			else
+				Toast.makeText(MovieDetails.this, "Movie added with success!", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.similar:
 			new GetSimilar().execute(m.idRT + "");

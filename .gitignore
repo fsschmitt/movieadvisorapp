@@ -4,3 +4,4 @@ bin/
 project.properties
 default.properties
 gen/
+.log

@@ -16,6 +16,7 @@
     <string name="genre">Genre(s)</string>
     <string name="accountchooser">Google Account Chooser</string>
     <string name="boxoffice">Box Office Movies</string>
+    <string name="sharepopup">Hide Share Popup </string>
     
     
 </resources>
