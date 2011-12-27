@@ -67,7 +67,7 @@ public class Lists extends ListActivity {
 		if (v.getId() == getListView().getId()) {
 			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 			menu.setHeaderTitle(Utility.names.get(this.cod).get(info.position));
-			menu.add(Menu.NONE, 0, 0, "Apagar");
+			menu.add(Menu.NONE, 0, 0, "Delete");
 		}
 	}
 
