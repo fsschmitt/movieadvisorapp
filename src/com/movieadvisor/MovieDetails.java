@@ -235,11 +235,11 @@ public class MovieDetails extends Activity {
 
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(MovieDetails.this);
-		String account = prefs.getString("accountchooser", null);
+		/*String account = prefs.getString("accountchooser", null);
 		if (account == null) {
 			Utility.checkAccount(MovieDetails.this);
 			return true;
-		}
+		}*/
 		
 		Boolean sharePopUp = prefs.getBoolean("sharepopup", false);
 

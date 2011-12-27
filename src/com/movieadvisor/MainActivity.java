@@ -17,8 +17,9 @@ public class MainActivity extends TabActivity {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		SharedPreferences prefs = PreferenceManager	.getDefaultSharedPreferences(MainActivity.this);
-		Utility.ID_DEFAULT = prefs.getString("accountchooser", null);
+		//SharedPreferences prefs = PreferenceManager	.getDefaultSharedPreferences(MainActivity.this);
+		//Utility.ID_DEFAULT = prefs.getString("accountchooser", null);
+		Utility.ID_DEFAULT = "default";
 		setContentView(R.layout.main);
 		self=this;
 		Utility.client = new MyHttpClient(getApplicationContext()); // Instantiate the custom HttpClient
@@ -70,8 +71,8 @@ public class MainActivity extends TabActivity {
 		tabHost.setOnTabChangedListener(new OnTabChangeListener(){
 			@Override
 			public void onTabChanged(String tabId) {
-				if(!tabId.equals("movieadvisor"))
-					Utility.checkAccount(tabHost, MainActivity.this);
+				/*if(!tabId.equals("movieadvisor"))
+					Utility.checkAccount(tabHost, MainActivity.this);*/
 			}
 		
 		});

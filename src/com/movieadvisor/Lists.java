@@ -58,7 +58,7 @@ public class Lists extends ListActivity {
 			    finish();
 			   }
 			  });
-		refreshMyList("get");
+		//refreshMyList("get");
 	}
 
 	@Override
@@ -349,6 +349,12 @@ public class Lists extends ListActivity {
 	    if (dh != null) {
 	        dh.close();
 	    }
+	}
+	
+	@Override
+	protected void onResume() {
+	    super.onResume();
+	    refreshMyList("get");
 	}
 
 }

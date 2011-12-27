@@ -1,7 +1,11 @@
 package com.movieadvisor;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.nio.channels.FileChannel;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -9,6 +13,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -107,6 +112,125 @@ public class PrefsActivity extends PreferenceActivity { //
 	    }
 	});
 	
+	
+	Preference backupdb = (Preference) findPreference("backupdb");
+	backupdb.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+	    
+		public boolean onPreferenceClick(final Preference preference) {
+			new AlertDialog.Builder(preference.getContext())
+		    .setTitle("Confirmation")
+		    .setMessage("Do you want to backup your database?")
+		    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+		      
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					
+					
+					try {
+				        File sd = Environment.getExternalStorageDirectory();
+
+				        if (sd.canWrite()) {
+				            String currentDBPath = "/data/data/com.movieadvisor/databases/movieadvisor.db";
+				            String backupDBPath = "movieadvisor.db";
+				            File currentDB = new File(currentDBPath);
+				            File backupDB = new File(sd, backupDBPath);
+				            if (currentDB.exists()) {
+				                FileChannel src = new FileInputStream(currentDB).getChannel();
+				                FileChannel dst = new FileOutputStream(backupDB).getChannel();
+				                dst.transferFrom(src, 0, src.size());
+				                src.close();
+				                dst.close();
+				            }
+				            else throw new Exception();
+				        }
+				        else
+				        	throw new Exception();
+				        
+				        Toast.makeText(preference.getContext(), "Database saved on the root of your SD Card", Toast.LENGTH_LONG)
+						.show();
+				    } catch (Exception e) {
+				    	
+				    	Toast.makeText(preference.getContext(), "Error. Do you have a SD Card?", Toast.LENGTH_LONG)
+						.show();
+				    }
+				}
+
+			
+		     }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+			      
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+
+				
+			     })
+		     .show();
+			return true;
+	    }
+	});
+	
+	
+	
+	Preference restoredb = (Preference) findPreference("restoredb");
+	restoredb.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+	    
+		public boolean onPreferenceClick(final Preference preference) {
+			new AlertDialog.Builder(preference.getContext())
+		    .setTitle("Confirmation")
+		    .setMessage("Do you want to restore your database?")
+		    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+		      
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					
+					
+					try {
+				        File sd = Environment.getExternalStorageDirectory();
+
+				        if (sd.canWrite()) {
+				            String backupDBPath = "/data/data/com.movieadvisor/databases/movieadvisor.db";
+				            String currentDBPath = "movieadvisor.db";
+				            File currentDB = new File(sd, currentDBPath);
+				            File backupDB = new File(backupDBPath);
+				            if (currentDB.exists()) {
+				                FileChannel src = new FileInputStream(currentDB).getChannel();
+				                FileChannel dst = new FileOutputStream(backupDB).getChannel();
+				                dst.transferFrom(src, 0, src.size());
+				                src.close();
+				                dst.close();
+				            }
+				            else throw new Exception();
+				        }
+				        else
+				        	throw new Exception();
+				        
+				        Toast.makeText(preference.getContext(), "Database restored.", Toast.LENGTH_LONG)
+						.show();
+				    } catch (Exception e) {
+				    	
+				    	Toast.makeText(preference.getContext(), "Error. Do you have a SD Card and a previous backup?", Toast.LENGTH_LONG)
+						.show();
+				    }
+				}
+
+			
+		     }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+			      
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+
+				
+			     })
+		     .show();
+			return true;
+	    }
+	});
+	
 	Preference database = (Preference) findPreference("erasedatabasedata");
 	database.setOnPreferenceClickListener(new OnPreferenceClickListener() {
 	    
@@ -182,23 +306,7 @@ public class PrefsActivity extends PreferenceActivity { //
 	    }
 	});
 
-	
-	ListPreference account = (ListPreference) findPreference("accountchooser");
-	CharSequence[] accounts = getUsername();
-	account.setEntries(accounts);
-	account.setEntryValues(accounts);
-	account.setDefaultValue(null);
-	account.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 
-        @Override
-        public boolean onPreferenceChange(Preference preference,
-                Object newValue) {
-        	Utility.ID_DEFAULT =(String) newValue;
-            return true;
-        }
-    });
-
-	
 	}
 	
 	@Override

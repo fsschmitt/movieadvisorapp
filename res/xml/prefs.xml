@@ -8,7 +8,6 @@
     <Preference android:key="erasetwitterdata" android:title="@string/erasetwitterdata" android:summary="Delete your Twitter information"></Preference>
     <ListPreference android:key="resultsnumber" android:title="@string/resultsnumber" android:entries="@array/listEntries" android:entryValues="@array/listEntriesValues" android:summary="Change the number of results per page"></ListPreference>
     <Preference android:key="donate" android:summary="@string/donateDescription" android:title="@string/donateTitle"></Preference>
-    <ListPreference android:summary="Choose which account you want to synchronize" android:key="accountchooser" android:title="@string/accountchooser"></ListPreference>
-    
-    
+    <Preference android:key="backupdb" android:title="@string/backupdb" android:summary="Backup your database (requires a SD Card)"></Preference>
+    <Preference android:key="restoredb" android:title="@string/restoredb" android:summary="Restore your database (requeires a SD Card and a previous backup)"></Preference>
 </PreferenceScreen>
