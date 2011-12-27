@@ -267,12 +267,12 @@ public class MovieDetails extends Activity {
 		case R.id.want:
 			share("I can't wait to see: ",true);
 			if (!addToDatabase(0))
-				Toast.makeText(MovieDetails.this, "The movie couldn't be inserted on the list!", Toast.LENGTH_SHORT).show();	
+				Toast.makeText(MovieDetails.this, "This movie is already on that list!", Toast.LENGTH_SHORT).show();	
 			break;
 		case R.id.seen:
 			share("I have just seen: ",true);
 			if (!addToDatabase(1))
-				Toast.makeText(MovieDetails.this, "The movie couldn't be inserted on the list!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(MovieDetails.this, "This movie is already on that list!", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.similar:
 			new GetSimilar().execute(m.idRT + "");
