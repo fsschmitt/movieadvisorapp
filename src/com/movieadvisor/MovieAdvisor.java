@@ -64,9 +64,11 @@ public class MovieAdvisor extends Activity {
 			public void onItemClick(AdapterView parent, View v, int position, long id) {
 				Intent intent = new Intent(v.getContext(), MovieDetails.class);
 				Bundle b = new Bundle();
-				b.putString("movieId", ids.get(position));
-				intent.putExtras(b);
-				startActivity(intent);
+				if(!ids.isEmpty()) {
+					b.putString("movieId", ids.get(position));
+					intent.putExtras(b);
+					startActivity(intent);
+				}
 			}
 		});
 		
