@@ -1,4 +1,4 @@
-package com.main;
+package com.movieadvisor;
 
 import java.io.BufferedReader;
 import java.io.IOException;

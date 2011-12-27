@@ -1,4 +1,4 @@
-package com.main;
+package com.movieadvisor;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;

@@ -1,5 +1,5 @@
 
-package com.main;
+package com.movieadvisor;
 
 import java.util.ArrayList;
 import java.util.HashMap;

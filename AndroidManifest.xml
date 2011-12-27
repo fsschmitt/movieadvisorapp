@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.main" android:versionCode="1" android:versionName="1.0">
+	package="com.movieadvisor" android:versionCode="1" android:versionName="1.0">
 	<supports-screens android:smallScreens="true"
 		android:normalScreens="true" android:largeScreens="true"
 		android:anyDensity="true" />
 
+	<uses-sdk android:minSdkVersion="8" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
 		
@@ -53,7 +54,7 @@
 			android:name=".TestPost">
 		</activity>
 		<activity android:theme="@android:style/Theme.NoTitleBar"
-			android:name=".CustomLists">
+			android:name="com.movieadvisor.CustomLists">
 		</activity>
 	</application>
 </manifest>

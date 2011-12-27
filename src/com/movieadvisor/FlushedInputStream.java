@@ -1,4 +1,4 @@
-package com.main;
+package com.movieadvisor;
 
 import java.io.FilterInputStream;
 import java.io.IOException;

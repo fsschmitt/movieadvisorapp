@@ -1,4 +1,4 @@
-package com.main;
+package com.movieadvisor;
 
 public class Pair<A, B> {
 	private A first;

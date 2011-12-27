@@ -1,4 +1,4 @@
-package com.main;
+package com.movieadvisor;
 
 import android.app.Activity;
 import android.content.Context;

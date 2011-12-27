@@ -39,7 +39,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.android.Facebook.DialogListener;
-import com.main.R;
+import com.movieadvisor.R;
 
 public class FbDialog extends Dialog {
 

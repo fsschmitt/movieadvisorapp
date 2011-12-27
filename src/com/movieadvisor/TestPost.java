@@ -6,7 +6,7 @@
  * http://www.londatiga.net
  */
 
-package com.main;
+package com.movieadvisor;
 
 
 import android.app.Activity;

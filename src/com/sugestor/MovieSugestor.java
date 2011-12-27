@@ -17,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.main.Utility;
+import com.movieadvisor.Utility;
 
 public class MovieSugestor {
 
