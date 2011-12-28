@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 import android.app.TabActivity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
 
