@@ -1,9 +1,7 @@
 package com.movieadvisor;
 
-import java.io.BufferedReader;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
 
 import java.text.ParseException;
@@ -46,26 +44,6 @@ public class GetMovieDetails {
 		return key;
 	}
 
-	private static String getJSONLine(URL url) throws IOException,
-			ParseException {
-		BufferedReader in;
-
-		HttpURLConnection tc = (HttpURLConnection) url.openConnection();
-		tc.setDoInput(true);
-		tc.setDoOutput(true);
-
-		in = new BufferedReader(new InputStreamReader(tc.getInputStream()));
-		String line = in.readLine();
-		if(line==null) return null;
-		
-		while( line.equals("")&& (line=in.readLine())!=null);
-
-		System.out.println("linha = " + line);
-
-		return line;
-
-	}
-
 	public Movie call() throws Exception {
 		URL url=null;
 		if(this.id==-1){
@@ -73,7 +51,7 @@ public class GetMovieDetails {
 		}
 		else
 			url = new URL("http://api.rottentomatoes.com/api/public/v1.0/movies/"+id+".json?apikey="+Utility.apiKey);
-		String line = getJSONLine(url);
+		String line = Utility.getJSONLine(url);
 		
 		JSONObject mov = new JSONObject(line);
 		String name = mov.getString("title");
@@ -123,7 +101,7 @@ public class GetMovieDetails {
 		
 		String uri = "http://api.themoviedb.org/2.1/Movie.imdbLookup/en/json/"+tmdbApiKey+"/"+mo.idIMDB;
 		URL url = new URL(uri);
-		String line = getJSONLine(url);
+		String line = Utility.getJSONLine(url);
 		if(line==null || line.equals("[\"Nothing found.\"]"))
         {
                 mo.setTrailerLink("Not avaliable");
@@ -135,7 +113,7 @@ public class GetMovieDetails {
 		mo.setIdTMDB(tmdbID);
 		url = new URL( "http://api.themoviedb.org/2.1/Movie.getInfo/en/json/"+tmdbApiKey+"/"+tmdbID);
 		System.out.println(url);
-		line = getJSONLine(url);
+		line = Utility.getJSONLine(url);
 		jsa = new JSONArray(line);
 		movie = jsa.getJSONObject(0);
 		if(mo.synopsis.equals(""))

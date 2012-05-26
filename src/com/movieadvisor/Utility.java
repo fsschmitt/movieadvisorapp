@@ -4,14 +4,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.net.URLConnection;
 import java.text.ParseException;
 import java.util.ArrayList;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -126,17 +129,32 @@ public class Utility {
 	}
 	
 	public static String getJSONLine(URL url) throws IOException,	ParseException {
-		BufferedReader in;
 		
-		URLConnection tc = url.openConnection();
-		tc.setDoInput(true);
-		tc.setDoOutput(true);
-		 in = new BufferedReader(new InputStreamReader(
-				tc.getInputStream()));
-		String line=in.readLine();
-		
-		while((line=in.readLine()).equals(""));
-		return line;
+		String response = null;
+		HttpClient httpclient = null;
+		try {
+		    HttpGet httpget = new HttpGet(url.toURI());
+		    httpclient = new DefaultHttpClient();
+		    HttpResponse httpResponse = httpclient.execute(httpget);
+
+		    final int statusCode = httpResponse.getStatusLine().getStatusCode();
+		    if (statusCode != HttpStatus.SC_OK) {
+		        throw new Exception("Got HTTP " + statusCode 
+		            + " (" + httpResponse.getStatusLine().getReasonPhrase() + ')');
+		    }
+
+		    response = EntityUtils.toString(httpResponse.getEntity(), HTTP.UTF_8);
+
+		} catch (Exception e) {
+		    e.printStackTrace();
+
+		} finally {
+		    if (httpclient != null) {
+		        httpclient.getConnectionManager().shutdown();
+		        httpclient = null;
+		    }
+		}
+		return response;
 	}
 	
 	public static Pair<ArrayList<Integer>, ArrayList<String>> getSimilar(int id) throws Exception

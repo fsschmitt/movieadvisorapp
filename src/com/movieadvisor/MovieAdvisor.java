@@ -107,7 +107,7 @@ public class MovieAdvisor extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.about:
-			String ms1 = "This application was developed by some really cool guys at Faculdade de Engenharia da Universidade do Porto! ";
+			String ms1 = "This application was developed by Felipe Schmitt, Hélder Moreira, José Pedro Marques e Tiago Babo at Faculdade de Engenharia da Universidade do Porto! ";
 			String ms2 = "If you like it, feel free to have a chat with us at movieadvisor@gmail.com!";
 			new AlertDialog.Builder(this)
 					.setTitle("About")

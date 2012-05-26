@@ -1,11 +1,9 @@
 package com.movieadvisor;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
@@ -70,21 +68,6 @@ public class MovieSearchResults extends ListActivity {
 
 	}
 
-	public static String getJSONLine(URL url) throws IOException {
-		BufferedReader in;
-
-		URLConnection tc = url.openConnection();
-		tc.setDoInput(true);
-		tc.setDoOutput(true);
-		in = new BufferedReader(new InputStreamReader(tc.getInputStream()));
-		String line = in.readLine();
-
-		while ((line = in.readLine()).equals(""))
-			;
-
-		return line;
-	}
-
 	class RetrieveMovies extends AsyncTask<String, Integer, String> {
 
 		@Override
@@ -104,7 +87,7 @@ public class MovieSearchResults extends ListActivity {
 			JSONArray jsa = null;
 			JSONObject jo = null;
 			try {
-				line = getJSONLine(url);
+				line = Utility.getJSONLine(url);
 				jo = new JSONObject(line);
 				jsa = jo.getJSONArray("movies");
 				for (int i = 0; i < jsa.length(); i++) {
@@ -122,6 +105,9 @@ public class MovieSearchResults extends ListActivity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

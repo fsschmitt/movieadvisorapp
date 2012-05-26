@@ -1,17 +1,14 @@
 package com.sugestor;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.movieadvisor.Utility;
 
 public class GetMovieDetailsRT implements Callable<MovieSugest> {
 	
@@ -38,26 +35,7 @@ public class GetMovieDetailsRT implements Callable<MovieSugest> {
 		
 		return key;
 	}
-	private static String getJSONLine(URL url) throws IOException,	ParseException {
-		BufferedReader in;
-		
-		HttpURLConnection tc = (HttpURLConnection)url.openConnection();
-		tc.setDoInput(true);
-		tc.setDoOutput(true);
-		
-		
-		 in = new BufferedReader(new InputStreamReader(
-				tc.getInputStream()));
-		String line=in.readLine();
-		
-		while((line=in.readLine()).equals(""));
-
-		System.out.println("linha = " +line);
-		
-		
-		return line;
-		
-	}
+	
 	@Override
 	public MovieSugest call() throws Exception {
 		URL url=null;
@@ -65,7 +43,7 @@ public class GetMovieDetailsRT implements Callable<MovieSugest> {
 			url = new URL(movieLink+"?apikey="+MovieSugestor.apiKey);
 		else
 			url = new URL("http://api.rottentomatoes.com/api/public/v1.0/movies/"+id+".json?apikey="+MovieSugestor.apiKey);
-		String line = getJSONLine(url);
+		String line = Utility.getJSONLine(url);
 		
 		JSONObject mov = new JSONObject(line);
 		String name = mov.getString("title");
